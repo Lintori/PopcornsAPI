@@ -1,0 +1,39 @@
+package com.lintori.rebyu.Services;
+
+import com.lintori.rebyu.Entities.*;
+import com.lintori.rebyu.Repository.UserRepository;
+import java.util.List;
+
+public class UserService {
+
+    private final UserRepository userRepository;
+
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    public List <User> findAllUsers(){
+        return this.userRepository.findAll();
+    }
+
+    public User findUser (Long id){
+        return this.userRepository.findById(id).orElse(null);
+    }
+
+    public void addUser (User user){
+        this.userRepository.save(user);   
+    }
+
+    public void updateUser (User updateUser, long id){
+        User user = this.userRepository.findById(id).orElse(null);
+        user.setName(updateUser.getName());
+        this.userRepository.save(user);
+    }
+
+    public void deleteUser(Long id){
+        this.userRepository.deleteById(id);
+    }
+
+    
+    
+}
