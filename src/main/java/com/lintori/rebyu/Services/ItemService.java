@@ -26,7 +26,7 @@ public class ItemService {
 
     public void updateMovie (Item updatedItem, String id){
         Item item = this.itemRepository.findById(id).orElse(null);
-        item.setName(updatedItem.getName());
+        item.setTitle(updatedItem.getTitle());
         this.itemRepository.save(item);
     }
 

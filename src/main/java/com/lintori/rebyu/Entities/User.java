@@ -1,6 +1,6 @@
 package com.lintori.rebyu.Entities;
 
-import java.util.List;
+//import java.util.List;
 
 public class User {
 
@@ -10,7 +10,8 @@ public class User {
     private String lastname;
     private String profilePicture;
     private String email;
-    private List<Item> items;
+    // Is this being used?
+    //private List<Item> items;
 
     public User(Integer id, String username, String name, String lastname, String profilePicture, String email) {
         this.id = id;
