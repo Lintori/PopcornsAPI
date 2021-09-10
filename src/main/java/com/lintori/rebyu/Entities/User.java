@@ -1,33 +1,63 @@
 package com.lintori.rebyu.Entities;
 
-//import java.util.List;
+import com.lintori.rebyu.Generic.Date;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+
+@Document(collection = "users")
 public class User {
 
-    private int id;
+    @Id
+    private String id;
+    @Field
     private String username;
+    @Field
     private String name;
+    @Field
     private String lastname;
+    @Field
     private String profilePicture;
+    @Field
     private String email;
-    // Is this being used?
-    //private List<Item> items;
+    private Date dateCreation;
+    private Integer nReviews;
 
-    public User(Integer id, String username, String name, String lastname, String profilePicture, String email) {
+    public User(String id, String username, String name, String lastname, String profilePicture, String email,
+            Date dateCreation, Integer nReviews) {
         this.id = id;
         this.username = username;
         this.name = name;
         this.lastname = lastname;
         this.profilePicture = profilePicture;
         this.email = email;
+        this.dateCreation = dateCreation;
+        this.nReviews = nReviews;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
+    }    
+
+    public Date getDateCreation() {
+        return dateCreation;
+    }
+
+    public void setDateCreation(Date dateCreation) {
+        this.dateCreation = dateCreation;
+    }
+
+    public Integer getnReviews() {
+        return nReviews;
+    }
+
+    public void setnReviews(Integer nReviews) {
+        this.nReviews = nReviews;
     }
 
     public String getUsername() {

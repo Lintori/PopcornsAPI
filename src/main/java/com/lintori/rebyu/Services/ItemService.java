@@ -16,7 +16,7 @@ public class ItemService {
         return this.itemRepository.findAll();
     }
 
-    public Item findMovie (String id){
+    public Item findMovie (Long id){
         return this.itemRepository.findById(id).orElse(null);
     }
 
@@ -24,13 +24,13 @@ public class ItemService {
         this.itemRepository.save(item);   
     }
 
-    public void updateMovie (Item updatedItem, String id){
+    public void updateMovie (Item updatedItem, Long id){
         Item item = this.itemRepository.findById(id).orElse(null);
         item.setTitle(updatedItem.getTitle());
         this.itemRepository.save(item);
     }
 
-    public void deleteMovie(String id){
+    public void deleteMovie(Long id){
         this.itemRepository.deleteById(id);
     }
 

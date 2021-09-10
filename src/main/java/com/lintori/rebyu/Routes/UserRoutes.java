@@ -13,7 +13,7 @@ public class UserRoutes {
     public ArrayList<User> getAllUsers() {
         ArrayList<User> allUsers = new ArrayList<>();
         allUsers.add(new User(
-                2,
+                "2",
                 "imreyes",
                 "Jorge",
                 "Reyes",
@@ -28,7 +28,7 @@ public class UserRoutes {
             @PathVariable(value="id") int requestID
     ) {
         return new User(
-                2,
+                "2",
                 "imreyes",
                 "Jorge",
                 "Reyes",

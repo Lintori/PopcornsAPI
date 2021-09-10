@@ -15,10 +15,10 @@ public class ItemRoutes {
     public ArrayList<Item> getAllItems() {
         ArrayList<Item> allItems = new ArrayList<>();
         allItems.add(new Item(
-                1,
+                (long) 1,
                 "title",
                 new User(
-                        1,
+                        "1",
                         "Mario25",
                         "Mario",
                         "Chan",
@@ -43,10 +43,10 @@ public class ItemRoutes {
             @PathVariable(value="id") int requestID
     ) {
         return new Item(
-                1,
+                (long) 1,
                 "title",
                 new User(
-                        1,
+                        "1",
                         "Mario25",
                         "Mario",
                         "Chan",

@@ -13,7 +13,7 @@ public class RatingRoutes {
     public ArrayList<Rating> getAllRatings() {
         ArrayList<Rating> allRatings = new ArrayList<>();
         allRatings.add(new Rating(
-                1,
+                (long) 1,
                 "movieTitle",
                 5,
                 "Excelente pelicula"
@@ -26,7 +26,7 @@ public class RatingRoutes {
             @PathVariable(value="id") int requestID
     ) {
         return new Rating(
-                1,
+                (long) 1,
                 "movieTitle",
                 5,
                 "Excelente pelicula"
