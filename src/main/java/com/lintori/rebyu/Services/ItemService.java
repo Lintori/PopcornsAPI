@@ -13,7 +13,7 @@ public class ItemService {
         this.itemRepository = itemRepository;
     }
 
-    public List <Item> findAllMovies(){
+    public List <Item> findAllItems(){
         return this.itemRepository.findAll();
     }
 

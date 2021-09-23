@@ -19,7 +19,7 @@ public class ItemRoutes {
 
 	@GetMapping()
 	public List<Item> getAllItems() {
-		return this.itemService.findAllMovies();
+		return this.itemService.findAllItems();
 	}
 
 	@GetMapping("/{id}")
