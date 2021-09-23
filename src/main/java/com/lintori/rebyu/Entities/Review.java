@@ -29,31 +29,31 @@ public class Review {
         this.id = id;
     }
     public Long getItemId() {
-        return itemId;
+        return this.itemId;
     }
     public void setItemId(Long itemId) {
         this.itemId = itemId;
     }
     public String getUserId() {
-        return userId;
+        return this.userId;
     }
     public void setUserId(String userId) {
         this.userId = userId;
     }
     public Float getRating() {
-        return rating;
+        return this.rating;
     }
     public void setRating(Float rating) {
         this.rating = rating;
     }
     public String getDescription() {
-        return description;
+        return this.description;
     }
     public void setDescription(String description) {
         this.description = description;
     }
     public Date getCreatedAt() {
-        return createdAt;
+        return this.createdAt;
     }
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;

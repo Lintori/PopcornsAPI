@@ -2,14 +2,67 @@ package com.lintori.rebyu.Entities;
 
 import com.lintori.rebyu.Generic.Date;
 
+import javax.persistence.*;
+
+
+@Entity(name="users")
+@Table(
+    name = "users"
+)
 public class Item {
 
+    @Id
+    @GeneratedValue(
+        generator = "user_generator",
+        strategy = GenerationType.SEQUENCE
+    )
+    @SequenceGenerator(
+        name = "user_generator",
+        sequenceName = "user_sequence",
+        allocationSize = 1
+    )
+    @Column(
+        name = "id",
+        updatable = false,
+        nullable = false
+    )
     private Long id;
+
+    @Column(
+        name = "image",
+        nullable = false,
+        columnDefinition = "CHARACTER VARYING (50)"
+    )
     private String image;
+
+    @Column(
+        name = "image",
+        nullable = false,
+        columnDefinition = "CHARACTER VARYING (50)"
+    )
     private String title;
+
+    @Column(
+        name = "nReviews",
+        nullable = false,
+        columnDefinition = "BIGINT"
+    )
     private Integer nReviews;
+
+    @Column(
+        name = "Rating",
+        nullable = false,
+        columnDefinition = "DOUBLE PRECISION"
+    )
     private Float Rating;
+
+    @Column(
+        name = "description",
+        nullable = false,
+        columnDefinition = "CHARACTER VARYING (50)"
+    )
     private String description;
+
     private Date createdAt;
     private Date updatedAt;
     private User addedBy;
@@ -20,12 +73,28 @@ public class Item {
         this.image = image;
         this.title = title;
         this.nReviews = nReviews;
-        Rating = rating;
+        this.Rating = rating;
         this.description = description;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.addedBy = addedBy;
     }
+
+    
+
+    public Item() {
+        this.id = null;
+        this.image = "";
+        this.title = "";
+        this.nReviews = null;
+        this.Rating = null;
+        this.description = "";
+        this.createdAt = null;
+        this.updatedAt = null;
+        this.addedBy = null;
+    }
+
+
 
     public Long getId() {
         return id;
@@ -36,7 +105,7 @@ public class Item {
     }
 
     public String getImage() {
-        return image;
+        return this.image;
     }
 
     public void setImage(String image) {
@@ -52,15 +121,15 @@ public class Item {
     }
 
     public Float getRating() {
-        return Rating;
+        return this.Rating;
     }
 
     public void setRating(Float rating) {
-        Rating = rating;
+        this.Rating = rating;
     }
 
     public String getDescription() {
-        return description;
+        return this.description;
     }
 
     public void setDescription(String description) {
@@ -68,7 +137,7 @@ public class Item {
     }
 
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
     public void setTitle(String title) {
@@ -76,7 +145,7 @@ public class Item {
     }
 
     public User getAddedBy() {
-        return addedBy;
+        return this.addedBy;
     }
 
     public void setAddedBy(User addedBy) {
@@ -84,7 +153,7 @@ public class Item {
     }
 
     public Date getCreatedAt() {
-        return createdAt;
+        return this.createdAt;
     }
 
     public void setCreatedAt(Date createdAt) {
@@ -92,7 +161,7 @@ public class Item {
     }
 
     public Date getUpdatedAt() {
-        return updatedAt;
+        return this.updatedAt;
     }
 
     public void setUpdatedAt(Date updatedAt) {

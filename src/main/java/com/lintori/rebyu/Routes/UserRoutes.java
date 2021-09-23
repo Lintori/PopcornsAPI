@@ -1,61 +1,45 @@
 package com.lintori.rebyu.Routes;
 
 import com.lintori.rebyu.Entities.User;
+import com.lintori.rebyu.Services.UserService;
+
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/users")
 public class UserRoutes {
 
-    @GetMapping()
-    public ArrayList<User> getAllUsers() {
-        ArrayList<User> allUsers = new ArrayList<>();
-        allUsers.add(new User(
-                "2",
-                "imreyes",
-                "Jorge",
-                "Reyes",
-                "profile picture",
-                "email"
-        ));
-        return allUsers;
-    }
+	private final UserService userService;
 
-    @GetMapping("/{id}")
-    public User getUser(
-            @PathVariable(value="id") int requestID
-    ) {
-        return new User(
-                "2",
-                "imreyes",
-                "Jorge",
-                "Reyes",
-                "profile picture",
-                "email"
-        );
-    }
+	public UserRoutes(UserService userService) {
+		this.userService = userService;
+	}
 
-    @PostMapping()
-    public void postUser(
-            @RequestBody User requestUser
-    ) {
+	@GetMapping("/")
+	public List<User> getAllUsers() {
+		return this.userService.findAllUsers();
+	}
 
-    }
+	@GetMapping("/{id}")
+	public User getUser(@PathVariable(value = "id") String requestID) {
+		return this.userService.findUser(requestID);
+	}
 
-    @PutMapping("/{id}")
-    public void putUser(
-            @PathVariable(value="id") int requestID
-    ) {
+	@PostMapping()
+	public void postUser(@RequestBody User requestUser) {
+		this.userService.addUser(requestUser);
+	}
 
-    }
+	@PutMapping("/{id}")
+	public void putUser(@RequestBody User requestUser, @PathVariable(value = "id") String requestID) {
+		this.userService.updateUser(requestUser, requestID);
+	}
 
-    @DeleteMapping("/{id}")
-    public void deleteUser(
-            @PathVariable(value="id") int requestID
-    ) {
-
-    }
+	@DeleteMapping("/{id}")
+	public void deleteUser(@PathVariable(value = "id") String requestID) {
+		this.userService.deleteUser(requestID);
+	}
 
 }
